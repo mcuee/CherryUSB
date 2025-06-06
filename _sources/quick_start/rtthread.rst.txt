@@ -91,7 +91,7 @@
         INIT_APP_EXPORT(usbh_init);
 
 * 使用 `scons --target=mdk5` 或者 `scons` 进行编译，如果是mdk，需要使用 AC6 编译器
-* 如果使用的是 GCC ，需要在链接脚本(ld)中添加如下代码：
+* 如果使用的是 GCC ，需要在链接脚本(需要放在 flash 位置)中添加如下代码：
 
 .. code-block:: C
 
@@ -101,6 +101,30 @@
         KEEP(*(.usbh_class_info))
         __usbh_class_info_end__ = .;
 
+
+举例如下：
+
+.. code-block:: C
+
+        /* The program code and other data into "FLASH" Rom type memory */
+        .text :
+        {
+        . = ALIGN(4);
+        *(.text)           /* .text sections (code) */
+        *(.text*)          /* .text* sections (code) */
+        *(.glue_7)         /* glue arm to thumb code */
+        *(.glue_7t)        /* glue thumb to arm code */
+        *(.eh_frame)
+
+        KEEP (*(.init))
+        KEEP (*(.fini))
+        . = ALIGN(4);
+        __usbh_class_info_start__ = .;
+        KEEP(*(.usbh_class_info))
+        __usbh_class_info_end__ = .;
+        . = ALIGN(4);
+        _etext = .;        /* define a global symbols at end of code */
+        } > FLASH
 
 借助 STM32CubeMX 生成 USB 初始化
 ----------------------------------
@@ -115,6 +139,8 @@
 - 将 `main.c` 中的 `SystemClock_Config` 替换掉 `board.c` 中的配置
 
 .. figure:: img/stm32_init2.png
+
+.. note :: 下面步骤从 V1.5.0 开始不再需要，**fsdev/usb_glue_st.c**, **dwc2/usb_glue_st.c** 文件中已经实现
 
 - 将 `stm32xxxx_hal_msp.c` 中的 `HAL_PCD_MspInit` 或者是 `HAL_HCD_MspInit` 中的内容复制到 `usb_dc_low_level_init` 和 `usb_hc_low_level_init` 函数中，举例如下：
 
