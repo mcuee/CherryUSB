@@ -7,27 +7,46 @@
 基于 bouffalolab 系列芯片（官方 SDK 支持）
 ------------------------------------------
 
-仓库参考：https://github.com/CherryUSB/cherryusb_bouffalolab
+.. list-table::
+    :widths: 10 10 10
+    :header-rows: 1
 
-- BL616/BL808：USB2.0 内置 HS phy 芯片，支持主从机。device 支持 5 个端点（包括端点0），不支持双向同时使用。
-- USB 的相关应用位于 `examples/usbdev` 和 `examples/usbhost` 目录下，根据官方环境搭建完成后，即可编译使用。
+    * - Repo url
+      - USB IP
+      - Version
+    * - https://github.com/CherryUSB/cherryusb_bouffalolab
+      - FOTG210
+      - less than latest
 
 基于 HPMicro 系列芯片（官方 SDK 支持）
 -----------------------------------------------------
 
-仓库参考：https://github.com/CherryUSB/cherryusb_hpmicro
+.. list-table::
+    :widths: 10 10 10
+    :header-rows: 1
 
-- HPM 系列: USB2.0 内置 HS phy 芯片，支持主从机。device 支持 8/16 端点（包括端点0），并且可以同时使用双向，不同芯片个数有差异。
-- USB 的相关应用位于 `samples/cherryusb` ，根据官方环境搭建完成后，即可编译使用。
+    * - Repo url
+      - USB IP
+      - Version
+    * - https://github.com/CherryUSB/cherryusb_hpmicro
+      - CHIPIDEA
+      - less than latest
 
-基于 esp32s2/s3/p4 系列芯片（官方 SDK 即将支持）
+基于 esp32s2/s3/p4 系列芯片（官方 SDK 支持）
 -------------------------------------------------
 
-仓库参考：https://github.com/CherryUSB/cherryusb_esp32
+.. list-table::
+    :widths: 10 10 10
+    :header-rows: 1
 
-- esp32s2/s3：USB2.0 内置全速 PHY 芯片，支持主从机，device 支持 7 个端点（包括端点0），并且可以同时使用双向。
-- esp32p4：一个 USB2.0 内置全速 PHY 芯片，一个 USB2.0 内置高速 PHY 芯片，支持主从机。
-- 默认 demo 采用组件库安装的形式，在 https://components.espressif.com/ 中搜索 cherryusb 即可
+    * - Repo url
+      - USB IP
+      - Version
+    * - https://github.com/CherryUSB/cherryusb_esp32
+      - DWC2
+      - less than latest
+
+默认 demo 采用组件库安装的形式，在 https://components.espressif.com/ 中搜索 cherryusb 即可。也可使用官方 idf 仓库下的 cherryusb demo。
 
 ESP-Registry 可以参考官方文档，推荐使用 vscode + esp-idf 的开发环境。
 
@@ -44,51 +63,122 @@ ESP-Registry 可以参考官方文档，推荐使用 vscode + esp-idf 的开发�
 .. figure:: img/esp3.png
 .. figure:: img/esp4.png
 
-基于飞腾派系列芯片（官方 SDK 支持）
------------------------------------
+基于 Phytium 系列芯片（官方 SDK 支持）
+---------------------------------------
 
-仓库参考：https://gitee.com/phytium_embedded/phytium-free-rtos-sdk
+.. list-table::
+    :widths: 10 10 10
+    :header-rows: 1
 
-- 飞腾派支持两个 USB3.0 主机（采用 XHCI）， 两个 USB2.0 主从机
-- USB 的相关应用位于 `example/peripheral/usb` ，根据官方环境搭建完成后，即可编译使用。
+    * - Repo url
+      - USB IP
+      - Version
+    * - https://gitee.com/phytium_embedded/phytium-free-rtos-sdk
+      - PUSB2/XHCI
+      - equal to v1.4.0
 
 基于 Essemi 系列芯片（官方 SDK 支持）
 -----------------------------------------
 
-仓库参考：https://github.com/CherryUSB/cherryusb_es32
+.. list-table::
+    :widths: 10 10 10
+    :header-rows: 1
 
-- 支持全速和高速主从机。device 支持 6 个端点（包括端点0），并且可以同时使用双向。
+    * - Repo url
+      - USB IP
+      - Version
+    * - https://github.com/CherryUSB/cherryusb_es32
+      - MUSB
+      - less than latest
 
 基于 Artinchip 系列芯片（官方 SDK 支持）
 -----------------------------------------------
 
-仓库参考：https://gitee.com/artinchip/luban-lite
+.. list-table::
+    :widths: 10 10 10
+    :header-rows: 1
 
-- 支持全速和高速主从机，主机采用 EHCI + OHCI。device 支持 8 个端点（包括端点0），并且可以同时使用双向。
+    * - Repo url
+      - USB IP
+      - Version
+    * - https://gitee.com/artinchip/luban-lite
+      - AIC/EHCI/OHCI
+      - less than latest
 
-基于 canmv-k230 芯片（官方 SDK 支持）
----------------------------------------------
+基于 Kendryte canmv-k230 系列（官方 SDK 支持）
+-----------------------------------------------
 
-仓库参考：https://github.com/CherryUSB/k230_sdk
+.. list-table::
+    :widths: 10 10 10
+    :header-rows: 1
 
-- K230: 两个 USB2.0 内置 HS PHY 芯片，支持主从机。device 支持 16 个端点（包括端点0），并且可以同时使用双向。
+    * - Repo url
+      - USB IP
+      - Version
+    * - https://github.com/CherryUSB/k230_sdk
+      - DWC2
+      - less than latest
 
-基于 NXP MCX系列芯片
+基于 NXP MCX 系列芯片
 ---------------------------
 
-仓库参考：https://github.com/CherryUSB/cherryusb_mcx 或者 https://github.com/RT-Thread/rt-thread/tree/master/bsp/nxp/mcx
+.. list-table::
+    :widths: 10 10 10
+    :header-rows: 1
 
-- 支持全速 IP 和高速 IP， 高速 IP 支持主机和从机。device 支持 8 个端点（包括端点0），并且可以同时使用双向。
+    * - Repo url
+      - USB IP
+      - Version
+    * - https://github.com/CherryUSB/cherryusb_mcx  https://github.com/RT-Thread/rt-thread/tree/master/bsp/nxp/mcx
+      - CHIPIDEA/kinetis
+      - less than latest
+
+基于 SiFli SF32 系列芯片（官方 SDK 支持）
+--------------------------------------------
+
+.. list-table::
+    :widths: 10 10 10
+    :header-rows: 1
+
+    * - Repo url
+      - USB IP
+      - Version
+    * - https://github.com/OpenSiFli/SiFli-SDK
+      - MUSB
+      - less than latest
 
 基于 RP2040/RP2035 芯片（官方 SDK 即将支持）
 --------------------------------------------
 
-仓库参考： https://github.com/CherryUSB/pico-examples 和 https://github.com/CherryUSB/pico-sdk
+.. list-table::
+    :widths: 10 10 10
+    :header-rows: 1
+
+    * - Repo url
+      - USB IP
+      - Version
+    * - https://github.com/CherryUSB/pico-examples  https://github.com/CherryUSB/pico-sdk
+      - RP2040
+      - less than latest
+
+基于 Actionstech 系列芯片（官方 SDK 支持）
+------------------------------------------------------
+
+Not opensource， 请联系 Actionstech 官方
 
 基于 ST 系列芯片
 ---------------------------
 
-仓库参考：https://github.com/CherryUSB/cherryusb_stm32
+.. list-table::
+    :widths: 10 10 10
+    :header-rows: 1
+
+    * - Repo url
+      - USB IP
+      - Version
+    * - https://github.com/CherryUSB/cherryusb_stm32
+      - DWC2/FSDEV
+      - less than latest
 
 默认提供以下 demo 工程：
 

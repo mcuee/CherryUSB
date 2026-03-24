@@ -6,14 +6,14 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>版本说明 &mdash; CherryUSB 1.5.3 documentation</title>
+  <title>版本说明 &mdash; CherryUSB 1.6.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
 
   
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="_static/documentation_options.js?v=d75fd82e"></script>
+      <script src="_static/documentation_options.js?v=72d88caf"></script>
       <script src="_static/doctools.js?v=9a2dae69"></script>
       <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
@@ -49,8 +49,8 @@
 <li class="toctree-l1"><a class="reference internal" href="quick_start/transplant.html">芯片通用移植指南</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quick_start/rtthread.html">基于 RT-Thread 软件包开发指南</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quick_start/q%26a.html">Q &amp; A</a></li>
-<li class="toctree-l1"><a class="reference internal" href="quick_start/share.html">开发者经验/开源项目分享</a></li>
-<li class="toctree-l1"><a class="reference internal" href="quick_start/opensource.html">官方开源项目分享</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quick_start/migration.html">部分改动迁移指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quick_start/opensource.html">基于 CherryUSB 的开源项目</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">USB 基本知识点</span></p>
 <ul>
@@ -77,28 +77,31 @@
 <li class="toctree-l1"><a class="reference internal" href="class/class_video.html">UVC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="class/winusb.html">WINUSB</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">例程说明</span></p>
+<p class="caption" role="heading"><span class="caption-text">例程</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="demo/usbd_cdc_acm.html">usbd_cdc_acm</a></li>
-<li class="toctree-l1"><a class="reference internal" href="demo/usbd_hid.html">usbd_hid</a></li>
-<li class="toctree-l1"><a class="reference internal" href="demo/usbd_msc.html">usbd_msc</a></li>
-<li class="toctree-l1"><a class="reference internal" href="demo/usbd_rndis.html">usbd_rndis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="demo/usbd_ecm.html">usbd_cdc_ecm</a></li>
-<li class="toctree-l1"><a class="reference internal" href="demo/usbd_audiov1.html">usbd_audiov1</a></li>
-<li class="toctree-l1"><a class="reference internal" href="demo/usbd_audiov2.html">usbd_audiov2</a></li>
-<li class="toctree-l1"><a class="reference internal" href="demo/usbd_video.html">usbd_video</a></li>
-<li class="toctree-l1"><a class="reference internal" href="demo/usbd_winusb.html">usbd_winusb</a></li>
-<li class="toctree-l1"><a class="reference internal" href="demo/usbd_webusb.html">usbd_webusb</a></li>
-<li class="toctree-l1"><a class="reference internal" href="demo/usbd_adb.html">usbd_adb</a></li>
-<li class="toctree-l1"><a class="reference internal" href="demo/usbh_serial.html">usbh_serial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="demo/usbh_hid.html">usbh_hid</a></li>
-<li class="toctree-l1"><a class="reference internal" href="demo/usbh_msc.html">usbh_msc</a></li>
-<li class="toctree-l1"><a class="reference internal" href="demo/usbh_net.html">usbh_net</a></li>
-<li class="toctree-l1"><a class="reference internal" href="demo/usbh_bluetooth.html">usbh_bluetooth</a></li>
-<li class="toctree-l1"><a class="reference internal" href="demo/usbh_wifi.html">usbh_wifi</a></li>
-<li class="toctree-l1"><a class="reference internal" href="demo/usbd_vendor.html">vendor device 驱动编写</a></li>
-<li class="toctree-l1"><a class="reference internal" href="demo/usbh_vendor.html">vendor host 驱动编写</a></li>
-<li class="toctree-l1"><a class="reference internal" href="demo/usb_otg.html">OTG 功能的使用</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demo/usbd_cdc_acm.html">CDC ACM Device</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demo/usbd_hid.html">HID Device</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demo/usbd_msc.html">MSC Device</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demo/usbd_audiov1.html">AudioV1 Device</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demo/usbd_audiov2.html">AudioV2 Device</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demo/usbd_video.html">USB Video Device</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demo/usbd_winusb.html">WinUSB Device</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demo/usbd_webusb.html">WebUSB Device</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demo/usbd_rndis.html">CDC RNDIS Device</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demo/usbd_ecm.html">CDC ECM Device</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demo/usbd_adb.html">ADB Device</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demo/usbd_mtp.html">MTP Device</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demo/usbh_serial.html">Serial Host</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demo/usbh_hid.html">HID Host</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demo/usbh_msc.html">MSC Host</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demo/usbh_net.html">Network Host</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demo/usbh_bluetooth.html">BTBLE Host</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demo/usbh_wifi.html">WIFI Host</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demo/usbh_audio.html">Audio Host</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demo/usbh_video.html">Video Host</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demo/usb_otg.html">USB OTG</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demo/usbd_vendor.html">Vendor Device 驱动编写</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demo/usbh_vendor.html">Vendor Host 驱动编写</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">USBIP 介绍</span></p>
 <ul>
@@ -120,7 +123,7 @@
 <li class="toctree-l1"><a class="reference internal" href="tools/index.html#wireshark">Wireshark</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tools/index.html#audacity">Audacity</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">版本说明</span></p>
+<p class="caption" role="heading"><span class="caption-text">Release Notes</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">版本说明</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#v0-10-2">&lt;= v0.10.2 初代版本</a></li>
@@ -137,6 +140,8 @@
 <li class="toctree-l2"><a class="reference internal" href="#v1-5-1">v1.5.1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#v1-5-2">v1.5.2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#v1-5-3">v1.5.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#v1-5-3-99">v1.5.3.99</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#v1-6-0">v1.6.0</a></li>
 </ul>
 </li>
 </ul>
@@ -351,6 +356,22 @@
 <li><p>CI 编译功能，支持 hpmicro/espressif/bouffalolab</p></li>
 </ul>
 </section>
+<section id="v1-5-3-99">
+<h2>v1.5.3.99<a class="headerlink" href="#v1-5-3-99" title="Link to this heading"></a></h2>
+<p>bugfix for v1.5.3</p>
+</section>
+<section id="v1-6-0">
+<h2>v1.6.0<a class="headerlink" href="#v1-6-0" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>host 增加 serial 框架，统一所有类串口驱动</strong></p></li>
+<li><p><strong>host hid 增加报告描述符解析功能</strong></p></li>
+<li><p>usbh_initialize 增加 event callback，用于通知用户主机事件变化，通常不需要使用，设置为 NULL 即可</p></li>
+<li><p>支持 gamepad device</p></li>
+<li><p>增加 ti xmc，infineon edge e8x port 支持</p></li>
+<li><p>dwc2 增加 usbd_dwc2_get_system_clock 替换 SystemCoreClock；删除 __UNALIGNED_UINT32_READ 和 __UNALIGNED_UINT32_WRITE 宏；读取 setup 个数设置为 1个；第一次读取 setup 移动到 USB_OTG_GINTSTS_ENUMDNE 中断中</p></li>
+<li><p>dwc2/ehci 增加 roothub 速度设置</p></li>
+</ul>
+</section>
 </section>
 
 
@@ -364,7 +385,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2022 ~ 2025, sakumisu.</p>
+    <p>&#169; Copyright 2022 ~ 2026, sakumisu.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
