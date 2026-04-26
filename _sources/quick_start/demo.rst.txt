@@ -119,6 +119,20 @@ ESP-Registry 可以参考官方文档，推荐使用 vscode + esp-idf 的开发�
       - DWC2
       - less than latest
 
+基于 SiFli 系列芯片（官方 SDK 支持）
+--------------------------------------------
+
+.. list-table::
+    :widths: 10 10 10
+    :header-rows: 1
+
+    * - Repo url
+      - USB IP
+      - Version
+    * - https://github.com/OpenSiFli/SiFli-SDK
+      - MUSB
+      - less than latest
+
 基于 NXP MCX 系列芯片
 ---------------------------
 
@@ -131,20 +145,6 @@ ESP-Registry 可以参考官方文档，推荐使用 vscode + esp-idf 的开发�
       - Version
     * - https://github.com/CherryUSB/cherryusb_mcx  https://github.com/RT-Thread/rt-thread/tree/master/bsp/nxp/mcx
       - CHIPIDEA/kinetis
-      - less than latest
-
-基于 SiFli SF32 系列芯片（官方 SDK 支持）
---------------------------------------------
-
-.. list-table::
-    :widths: 10 10 10
-    :header-rows: 1
-
-    * - Repo url
-      - USB IP
-      - Version
-    * - https://github.com/OpenSiFli/SiFli-SDK
-      - MUSB
       - less than latest
 
 基于 RP2040/RP2035 芯片（官方 SDK 即将支持）
@@ -160,11 +160,6 @@ ESP-Registry 可以参考官方文档，推荐使用 vscode + esp-idf 的开发�
     * - https://github.com/CherryUSB/pico-examples  https://github.com/CherryUSB/pico-sdk
       - RP2040
       - less than latest
-
-基于 Actionstech 系列芯片（官方 SDK 支持）
-------------------------------------------------------
-
-Not opensource， 请联系 Actionstech 官方
 
 基于 ST 系列芯片
 ---------------------------
@@ -312,3 +307,41 @@ USB Host 移植要点
 - 启动线程
 
 .. figure:: img/stm32_18.png
+
+基于 Actionstech 系列芯片（官方 SDK 支持）
+------------------------------------------------------
+
+Not opensource， 请联系 Actionstech 官方
+
+基于新塘系列芯片（官方 SDK 支持）
+------------------------------------------------------
+
+Not opensource， 请联系 新塘 官方
+
+基于 Sophgo 系列芯片（官方 SDK 支持）
+------------------------------------------------------
+
+.. list-table::
+    :widths: 10 10 10
+    :header-rows: 1
+
+    * - Repo url
+      - USB IP
+      - Version
+    * - https://github.com/CherryUSB/cvi_alios_open
+      - DWC2
+      - equal to v0.7.0
+
+基于 Bekencorp 系列芯片（官方 SDK 支持）
+------------------------------------------------------
+
+.. list-table::
+    :widths: 10 10 10
+    :header-rows: 1
+
+    * - Repo url
+      - USB IP
+      - Version
+    * - https://github.com/bekencorp/armino
+      - MUSB
+      - equal to v0.7.0
