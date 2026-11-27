@@ -121,7 +121,7 @@ USB_ERR_NAK 说明
 USB_ERR_NAK 只存在于 DWC2 buffer dma/slave 模式(我们不使用 slave 模式)，DWC2 在 buffer dma模式下对于中断传输不支持硬件处理 NAK 中断，因此需要软件处理，导致 NAK 中断非常多，建议搭配定时器使用。
 DWC2 scatter/gather dma 模式下全部由硬件处理，但是不支持 split 传输。总结， **食之无味，弃之可惜**。
 
-USB host 连接 USB 网卡问题
+USB host 连接 USB 网卡无法联网问题
 ----------------------------------------------------------------
 
 表现为能识别网卡并且分配到 IP 地址，但是无法 ping 通，这是因为网卡自身需要开启自动拨号，通常需要使用 AT 口设置。具体为 EC20/ML307 等模块。
@@ -139,13 +139,17 @@ USB host 连接 USB 网卡问题
 - 在未开启 CONFIG_USB_DCACHE_ENABLE 时，仅 DWC2/WCH/AIC IP 需要 4字节对齐，其余 1字节对齐即可。
 - 在开启 CONFIG_USB_DCACHE_ENABLE 时，所有 IP 都需要对齐到 CONFIG_USB_ALIGN_SIZE 字节
 
+主机优先级相关注意事项
+-------------------------------------------------
+
+枚举线程优先级需要比所有用到 submit 地方的 USB APP 优先级低。
+
 主机 class 变量生命周期的处理
 -------------------------------------------------
 
-当前每个 class 提供了 disconnect 函数，当这个函数执行完成后，class 的资源就准备释放了，因此，其他地方就不可以再访问该资源。合理的做法是，
-在 disconnect 函数中增加信号量等待，直到所有对该 class 资源的操作完成，然后释放信号量，这样才能保证安全退出。
+当前每个 class 提供了 disconnect 函数，当这个函数执行完成后，class 的资源就准备释放了，因此，其他地方就不可以再访问该资源。可以选择以下方式处理：
 
-举例如下：
+- 使用信号量等待，前提所有的 class 资源都在这个线程中处理
 
 .. code-block:: C
     static usb_osal_sem_t xxx_exit_sem;
@@ -179,3 +183,20 @@ USB host 连接 USB 网卡问题
         /* 等待任务退出 */
         usb_osal_sem_take(xxx_exit_sem, USB_OSAL_WAIT_FOREVER);
     }
+
+- 直接删除线程，前提所有的 class 资源都在这个线程中处理
+
+.. code-block:: C
+
+    void usbh_xxx_stop(struct usbh_xxx *xxx)
+    {
+        usb_osal_thread_delete(xxx->thread);
+    }
+
+.. note:: serial，网络相关的 class 不需要用户额外处理
+
+主机 class 驱动编写注意事项
+-------------------------------------------------
+
+- 禁止在 class 驱动中调用非控制传输的请求，class 驱动只做枚举相关功能
+- 禁止在 class 驱动中使用除了控制传输的阻塞功能，否则影响插拔时效
